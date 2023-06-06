@@ -1,0 +1,8 @@
+- hosts: nas
+  become: true
+  become_user: root
+  tasks:
+    - name: Apply [net.ipv4.ip_forward] Template
+      template:
+        src: files/disable_ipv4_forwarding
+        dest: /proc/sys/net/ipv4/ip_forward
